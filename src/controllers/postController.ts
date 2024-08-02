@@ -90,7 +90,7 @@ const deletePostById = async (req: Request, res: Response) => {
 
 const getPostsByUser = async (req: Request, res: Response) => {
   try {
-    const { id } = req.params;
+    const { id } = req.user as { id: string };
     const posts = await PostService.getByUserId(id);
     sendResponse(res, 200, posts, 'Posts retrieved successfully');
   } catch (error) {

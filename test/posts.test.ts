@@ -83,7 +83,8 @@ describe('Post Testing On side for both create or edit or update post', () => {
     const response = await request
       .patch(`${prefix}/posts/${postId}`)
       .send(payload)
-      .set('Accept', 'application/json');
+      .set('Accept', 'application/json')
+      .set('Authorization', `Bearer ${initialState.token}`);
     expect(response.status).toBe(200);
     expect(response.body.data).toHaveProperty('title');
     expect(response.body.data).toHaveProperty('content');
