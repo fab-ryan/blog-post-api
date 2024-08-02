@@ -10,6 +10,10 @@
   },
   "servers": [
     {
+      "url": "https://blog-api-at0f.onrender.com/api",
+      "description": "Production server"
+    },
+    {
       "url": "http://localhost:5500/api",
       "description": "Development server"
     }

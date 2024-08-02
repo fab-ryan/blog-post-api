@@ -23,7 +23,7 @@ const dbConfig = () => {
     port: process.env[`${prefix}_DB_PORT`] || 5432,
     dialect: process.env[`${prefix}_DB_DIALECT`] || 'postgres',
   };
-  if (prefix === 'PROD') {
+  if (prefix !== 'PROD') {
     config.dialectOptions = {
       ssl: {
         require: true,
