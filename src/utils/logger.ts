@@ -1,6 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import winston, { transports, format } from 'winston';
 import 'winston-daily-rotate-file';
+import morgan from 'morgan';
 
 const logger = winston.createLogger({
   level: 'info',
@@ -36,4 +37,15 @@ const logger = winston.createLogger({
   ],
 });
 
-export { logger };
+const loggerMiddleware = morgan(
+  ':method :url :status :res[content-length] - :response-time ms',
+  {
+    stream: {
+      write: message => {
+        logger.http(message.trim());
+      },
+    },
+  }
+);
+
+export { logger, loggerMiddleware };
