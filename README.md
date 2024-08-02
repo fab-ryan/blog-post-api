@@ -1,5 +1,5 @@
-# Node.js TypeScript CRUD Application with POSTGRES
-This project is a Node.js application written in TypeScript, implementing CRUD (Create, Read, Update, Delete) operations for User and Post entities. The application uses Express as the web framework, PostgreSQL as the database, and includes unit tests to ensure functionality.
+# Posts API  Application with POSTGRES and Express
+This application is for Posting a blog, be able to read ablog and even managment of users are implemented
 
 ## Features
  - TypeScript for type safety and better development experience.
@@ -86,4 +86,4 @@ The swagger documentation will be available at `http://localhost:5500/api-docs`.
 
 
 ## Done By 
-- [fab-ryan]
+- [fab-ryan](https://github.com/fab-ryan)
