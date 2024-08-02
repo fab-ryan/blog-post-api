@@ -1,0 +1,366 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "REST API for Posts Documentation",
+    "version": "1.0.0",
+    "contact": {
+      "name": "NDACYAYISENGA Fabrice",
+      "email": "royalfabrice1234@gmail.com"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5500/api",
+      "description": "Development server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Users",
+      "description": "API for users in the system"
+    },
+    {
+      "name": "Auth",
+      "description": "API for authentication"
+    }
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Get user by id",
+        "responses": {
+          "200": {
+            "message": "User fetched successfully",
+            "success": true,
+            "data": "user",
+            "statusCode": 200
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      },
+      "post": {
+        "tags": ["Users"],
+        "summary": "Create a new user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "message": "User created successfully",
+            "success": true,
+            "data": "user",
+            "statusCode": 201
+          }
+        }
+      }
+    },
+    "/users/{id}":{
+      "delete": {
+        "tags": ["Users"],
+        "summary": "Delete user profile",
+        "responses": {
+          "200": {
+            "message": "User profile deleted successfully",
+            "success": true,
+            "data": "user",
+            "statusCode": 200
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/users/profile": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Get user profile",
+
+        "responses": {
+          "200": {
+            "message": "User profile fetched successfully",
+            "success": true,
+            "data": "user",
+            "statusCode": 200
+          }
+        },
+
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/admin/users": {
+      "get": {
+        "tags": ["Users"],
+        "summary": "Get all users",
+        "responses": {
+          "200": {
+            "message": "Users fetched successfully",
+            "success": true,
+            "data": "users",
+            "statusCode": 200
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/auth/login":{
+      "post": {
+        "tags": ["Auth"],
+        "summary": "Login user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "message": "User logged in successfully",
+            "success": true,
+            "data": "user",
+            "statusCode": 200
+          }
+        }
+      }
+    },
+    "/posts":{
+      "get": {
+        "tags": ["Posts"],
+        "summary": "Get all posts",
+        "responses": {
+          "200": {
+            "message": "Posts fetched successfully",
+            "success": true,
+            "data": "posts",
+            "statusCode": 200
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      },
+      
+      "post": {
+        "tags": ["Posts"],
+        "summary": "Create a new post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "message": "Post created successfully",
+            "success": true,
+            "data": "post",
+            "statusCode": 201
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+     
+    }
+    ,
+    "/posts/{id}": {
+      "get": {
+        "tags": ["Posts"],
+        "summary": "Get post by id",
+        "responses": {
+          "200": {
+            "message": "Post fetched successfully",
+            "success": true,
+            "data": "post",
+            "statusCode": 200
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": ["Posts"],
+        "summary": "Update post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string"
+                  },
+                  "content": {
+                    "type": "string"
+                  },
+                  "image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "message": "Post updated successfully",
+            "success": true,
+            "data": "user",
+            "statusCode": 200
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": ["Posts"],
+        "summary": "Delete Post",
+        "responses": {
+          "200": {
+            "message": "Post deleted successfully",
+            "success": true,
+            "data": "user",
+            "statusCode": 200
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/posts-user":{
+      "get": {
+        "tags": ["Posts"],
+        "summary": "Get all posts of a user",
+        "responses": {
+          "200": {
+            "message": "Posts fetched successfully",
+            "success": true,
+            "data": "posts",
+            "statusCode": 200
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

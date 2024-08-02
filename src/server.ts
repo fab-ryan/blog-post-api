@@ -1,4 +1,4 @@
-import { app, port } from './app';
+import { app, port } from './index';
 import { logger } from './utils';
 
 app.listen(port, () => {
