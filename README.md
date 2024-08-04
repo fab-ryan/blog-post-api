@@ -1,3 +1,10 @@
+[![Coverage Status](https://coveralls.io/repos/github/fab-ryan/blog-post-api/badge.svg?branch=main)](https://coveralls.io/github/fab-ryan/blog-post-api?branch=main)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/fab-ryan/blog-post-api/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/fab-ryan/blog-post-api/tree/main)
+![ts](https://flat.badgen.net/badge/-/TypeScript/blue?icon=typescript&label)
+![Postgres](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Express](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
+![Dotenv](https://img.shields.io/badge/Dotenv-000000?style=for-the-badge&logo=dotenv&logoColor=white)
 # Posts API  Application with POSTGRES and Express
 This application is for Posting a blog, be able to read ablog and even managment of users are implemented
 
